@@ -1,0 +1,163 @@
+1).Write a C program to create an integer array of size 5, initialize it with values from 1 to 5, and then use pointer arithmetic to print each element of the array.
+
+
+#include <stdio.h>
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5};   
+    int *ptr = arr;
+    for (int i = 0; i < 5; i++) {
+        printf("enter element %d: %d\n", i + 1, *(ptr + i));
+    }
+    return 0;
+}
+
+
+2).Write a C program to create a pointer to a pointer for an integer variable. Initialize the integer variable with a value, and then print its value using both the single pointer and the pointer to pointer.
+
+#include <stdio.h>
+
+int main() {
+    int num = 42;
+    int *ptr = &num;
+    int **ptr_to_ptr = &ptr;
+    printf("Value of num using single pointer: %d\n", *ptr);
+    printf("Value of num using pointer to pointer: %d\n", **ptr_to_ptr);
+    return 0;
+}
+
+
+3).Write a C function void swap(int *a, int *b) that swaps the values of two integers. Then, write a main function to test this swap function using pointer arguments.
+
+#include <stdio.h>
+
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main() {
+   
+    int x = 10;
+    int y = 20;
+    printf("Before swapping:\n");
+    printf("x = %d, y = %d\n", x, y);
+    swap(&x, &y);
+
+    printf("After swapping:\n");
+    printf("x = %d, y = %d\n", x, y);
+    return 0;
+}
+
+Pointer to Function:
+5).Write a C program to create a function pointer that points to a function int add(int, int). Use the function pointer to call the add function and print the result.
+
+
+#include <stdio.h>
+int add(int a, int b) {
+    return a + b;
+}
+int main() {
+    int (*func_ptr)(int, int) = add;
+    int x = 5;
+    int y = 10;
+
+    int result = func_ptr(x, y);
+    printf("The result of adding %d and %d is: %d\n", x, y, result);
+    return 0;
+}
+
+
+Functions
+Recursive Function:
+6).Write a C function int factorial(int n) that calculates the factorial of a given number using recursion. Test this function in the main program by calculating and printing the factorial of 5.
+
+
+#include <stdio.h>
+int factorial(int n) {
+    if (n <= 1) {
+        return 1;  
+    } else {
+        return n * factorial(n - 1);  
+    }
+}
+
+int main() {
+    int num = 5;
+    int result = factorial(num);
+  printf("The factorial of %d is: %d\n", num, result);
+  return 0;
+}
+
+
+Static Variables in Functions:
+10).Write a C function that uses a static variable to count how many times the function has been called. Test this function in the main program by calling it multiple times and printing the count.
+
+
+
+#include <stdio.h>
+void countFun(void) {
+    static int count = 0;  
+    count++;
+    printf("Function has been called %d times\n", count);
+}
+int main() {
+    countFun();
+    countFun();
+    countFun();
+    countFun();
+
+    return 0;
+}
+
+
+
+Structures
+11).Structure Basics:
+Define a structure struct Point with two integer members x and y. Write a C program to create a Point variable, initialize it with values, and print the values.
+
+#include <stdio.h>
+
+struct Point {
+    int x;
+    int y;
+};
+
+int main() {
+    
+    struct Point p1;
+    p1.x = 10;
+    p1.y = 20;
+
+    printf("Point p1: x = %d, y = %d\n", p1.x, p1.y);
+
+    return 0;
+}
+
+
+Array of Structures:
+12).Write a C program to define a structure struct Student with members name, age, and marks. Create an array of 3 students, initialize them with values, and print the details of each student.
+
+#include <stdio.h>
+
+ struct Student {
+    char name[50];
+    int age;
+    float marks;
+};
+
+int main() {
+        struct Student students[3] = {
+        {"ravi", 20, 85.5},
+        {"Babu", 22, 90.0},
+        {"siva", 19, 78.0}
+    };
+
+    for (int i = 0; i < 3; i++) {
+        printf("Student %d:\n", i + 1);
+        printf("Name: %s, Age: %d, Marks: %.2f\n", students[i].name, students[i].age, students[i].marks);
+    }
+
+    return 0;
+}
+
